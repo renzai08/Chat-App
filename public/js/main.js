@@ -66,9 +66,9 @@ function outputRoomName(room){
 
 function outputRoomUsers(users){
     $('#users').empty();
-    userList.innerHTML = `${users.map(user=> `<li><i class="fa fa-circle mr-2 text-success" aria-hidden="true"><br></i>${user.username}</li>`).join('')}`;
+    userList.innerHTML = `${users.map(user=> `<li><span><img src="https://image.freepik.com/free-vector/man-avatar-profile-round-icon_24640-14046.jpg" alt="" class="fluid rounded-circle mr-3 mb-4 mt-3" height="50" width="50"></span><i class="fa fa-circle mr-2 text-success" aria-hidden="true"><br></i><p class='btn btn-outline-info mt-3' id= "userID">${user.username}</p></li>`).join('')}`;
 }
-
+//Someone is typing
 var timeout;
 var typing = false
 
