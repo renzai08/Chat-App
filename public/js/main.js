@@ -66,7 +66,7 @@ function outputRoomName(room){
 
 function outputRoomUsers(users){
     $('#users').empty();
-    userList.innerHTML = `${users.map(user=> `<li><span><img src="https://image.freepik.com/free-vector/man-avatar-profile-round-icon_24640-14046.jpg" alt="" class="fluid rounded-circle mr-3 mb-4 mt-3" height="50" width="50"></span><i class="fa fa-circle mr-2 text-success" aria-hidden="true"><br></i><p class='btn btn-outline-info mt-3' id= "userID">${user.username}</p></li>`).join('')}`;
+    userList.innerHTML = `${users.map(user=> `<li><span><img src="https://image.freepik.com/free-vector/man-avatar-profile-round-icon_24640-14046.jpg" alt="" class="fluid rounded-circle mr-3 mb-4 mt-3 id" height="50" width="50"></span><i class="fa fa-circle mr-2 text-success" aria-hidden="true"><br></i><p class='btn btn-outline-info mt-3' ><input type='hidden' value='${user.id}' id='friends'>${user.username}</p></li>`).join('')}`;
 }
 //Someone is typing
 var timeout;
@@ -79,7 +79,7 @@ function timeoutFunction() {
 
 $('#msg').keyup(function() {
     typing = true;
-    socket.emit('typing', 'Someone is typing');
+    socket.emit('typing', username + ' is typing');
     clearTimeout(timeout);
     timeout = setTimeout(timeoutFunction, 1000);
 });
@@ -91,3 +91,4 @@ socket.on('typing', function(data) {
         $('#typing').html("");
     }
 });
+
