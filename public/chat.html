@@ -40,7 +40,8 @@
                                 </h3>
                             </div>
                             <hr>
-                            <h4 id="room-name" class="text-center text-info"></h4>
+                            <!-- <h4 id="room-name" class="text-center text-info"></h4> -->
+                            <a href="#" class="btn btn-info" id="room-name" style="margin-left: 170px;"></a>
                         </div>
 
                         <div class="chat_list active_chat">
@@ -54,27 +55,31 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="mesgs">
-                    <div class="msg_history">
+                    <div class="msg_history" id="messageContainer">
                         <a href="index.html" class="btn btn-info float-right leave">Leave Room</a>
-                        <div class="incoming_msg mt-5 ">
+                        <div class="incoming_msg mt-5">
+                            <div class="private">
+                                <div class="others mt-1">
+                                    <p class=" mt-2 message-to"></p>
+                                  </div>
+                            </div>
                             <div class="chat-message">
 
                             </div>
                         </div>
                     </div>
                     <div class="type_msg">
+                        <div id="priv"></div>
                         <div id="typing">
                         </div>
                         <form action="" id="chat-form">
                             <div class="input_msg_write" id="area">
 
-                                <input type="text" class="text-dark" id="msg" placeholder="Type a message" />
-                                <button class="msg_send_btn" type="submit"><i class="fa fa-paper-plane-o"
-                                        aria-hidden="true"></i></button>
+                                <input type="text" class="text-dark form-control" id="msg"
+                                    placeholder="Type a message" />
                             </div>
                         </form>
                     </div>

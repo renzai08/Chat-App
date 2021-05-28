@@ -19,6 +19,7 @@ io.on('connection', socket => {
     socket.on('typing', function (data) {
         socket.broadcast.emit('typing', data);
     });
+  
    
 
 
@@ -50,8 +51,13 @@ io.on('connection', socket => {
         
     })
 
-    
-    
+    socket.on("private", function(data) {       
+        // io.sockets.sockets[data.to].emit("private",data);
+        // socket.broadcast.to(data.to).emit('private', data);
+        io.to([data.to]).emit('private', data);
+        socket.emit("private", data);
+    });
+  
 
     // Run when client disconnected
     socket.on('disconnect', () => {
@@ -72,5 +78,5 @@ io.on('connection', socket => {
 
 //Port
 
-const PORT = 3000 || process.env.PORT;
+const PORT =   process.env.port || 5000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
